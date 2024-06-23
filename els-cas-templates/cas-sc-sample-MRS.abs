@@ -1,0 +1,8 @@
+The advancement and ubiquity of digital networks have fundamentally transformed numerous spheres of human activity. At the heart of this phenomenon, lies the Transmission Control Protocol (TCP) model, whose influence is particularly notable in the exponential growth of the Internet due to its ability to transmit flexibly to any device, through its advanced Congestion Control (CC). Seeking an even more efficient CC mechanism, this work proposes the construction of deep learning neural networks (MLP, LSTM, and CNN) for classifying the level of network congestion. The results attest to models capable of distinguishing, with over 90\% accuracy, between moments of high and low degrees of congestion. With this, it becomes possible to differentiate between congestion and random losses, potentially increasing throughput by up to five times in environments with random losses when combined with CC algorithms.
+
+\noindent\texttt{\textbackslash begin{abstract}} \dots
+\texttt{\textbackslash end{abstract}} and
+\verb+\begin{keyword}+ \verb+...+ \verb+\end{keyword}+
+which
+contain the abstract and keywords respectively.
+Each keyword shall be separated by a \verb+\sep+ command.

@@ -1,0 +1,80 @@
+\begin{thebibliography}{8}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Fortunato(2010)}]{Fortunato2010}
+\bibinfo{author}{Fortunato, S.}, \bibinfo{year}{2010}.
+\newblock \bibinfo{title}{Community detection in graphs}.
+\newblock \bibinfo{journal}{Phys. Rep.-Rev. Sec. Phys. Lett.}
+  \bibinfo{volume}{486}, \bibinfo{pages}{75--174}.
+%Type = Article
+\bibitem[{Fukushima(1980)}]{b0000061}
+\bibinfo{author}{Fukushima, K.}, \bibinfo{year}{1980}.
+\newblock \bibinfo{title}{Neocognitron: {A} self-organizing neural network
+  model for a mechanism of pattern recognition unaffected by shift in
+  position}.
+\newblock \bibinfo{journal}{Biological Cybernetics} \bibinfo{volume}{36},
+  \bibinfo{pages}{193--202}.
+\newblock \URLprefix \url{https://doi.org/10.1007/BF00344251},
+  \DOIprefix\doi{10.1007/BF00344251}. \bibinfo{note}{0000061}.
+%Type = Article
+\bibitem[{Hochreiter and Schmidhuber(1997)}]{b0000060}
+\bibinfo{author}{Hochreiter, S.}, \bibinfo{author}{Schmidhuber, J.},
+  \bibinfo{year}{1997}.
+\newblock \bibinfo{title}{Long {Short}-{Term} {Memory}}.
+\newblock \bibinfo{journal}{Neural Computation} \bibinfo{volume}{9},
+  \bibinfo{pages}{1735--1780}.
+\newblock \URLprefix
+  \url{https://ieeexplore.ieee.org/abstract/document/6795963},
+  \DOIprefix\doi{10.1162/neco.1997.9.8.1735}. \bibinfo{note}{0000060 Conference
+  Name: Neural Computation}.
+%Type = Misc
+\bibitem[{ITU(2023)}]{b0000049}
+\bibinfo{author}{ITU, G.C.R.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Global {Connectivity} {Report} 2022 -
+  \url{https://www.itu.int/itu-d/reports/statistics/2022/05/29/gcr-chapter-1}
+  acesso em 13/12/23}.
+\newblock \URLprefix
+  \url{https://www.itu.int/itu-d/reports/statistics/2022/05/29/gcr-chapter-1}.
+%Type = Article
+\bibitem[{Lippmann(1987)}]{b0000062}
+\bibinfo{author}{Lippmann, R.}, \bibinfo{year}{1987}.
+\newblock \bibinfo{title}{An introduction to computing with neural nets}.
+\newblock \bibinfo{journal}{IEEE ASSP Magazine} \bibinfo{volume}{4},
+  \bibinfo{pages}{4--22}.
+\newblock \URLprefix \url{https://ieeexplore.ieee.org/document/1165576},
+  \DOIprefix\doi{10.1109/MASSP.1987.1165576}. \bibinfo{note}{0000062 Conference
+  Name: IEEE ASSP Magazine}.
+%Type = Article
+\bibitem[{Newman and Girvan(2004)}]{NewmanGirvan2004}
+\bibinfo{author}{Newman, M.E.J.}, \bibinfo{author}{Girvan, M.},
+  \bibinfo{year}{2004}.
+\newblock \bibinfo{title}{Finding and evaluating community structure in
+  networks}.
+\newblock \bibinfo{journal}{Phys. Rev. E.} \bibinfo{volume}{69},
+  \bibinfo{pages}{026113}.
+%Type = Misc
+\bibitem[{ns3(2023)}]{b0000058}
+\bibinfo{author}{ns3}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{A discrete-event network simulator for internet
+  systems - https://www.nsnam.org - vistado em 13/12/05}.
+%Type = Article
+\bibitem[{Vehlow et~al.(2013)Vehlow, Reinhardt and Weiskopf}]{Vehlowetal2013}
+\bibinfo{author}{Vehlow, C.}, \bibinfo{author}{Reinhardt, T.},
+  \bibinfo{author}{Weiskopf, D.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Visualizing fuzzy overlapping communities in
+  networks}.
+\newblock \bibinfo{journal}{IEEE Trans. Vis. Comput. Graph.}
+  \bibinfo{volume}{19}, \bibinfo{pages}{2486--2495}.
+
+\end{thebibliography}
