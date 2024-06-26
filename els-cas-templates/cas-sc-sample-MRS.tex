@@ -493,7 +493,19 @@ The ARN based on LSTM and CNN required elaborate transformations. In LSTN, consi
 
 
 
-\subsection{Capacidade de generalização dos modelos (QP1.1, QP1.2, QP 2)}
+\subsection{Generalization capacity of models (QP1.1, QP1.2, QP 2)}
+%GGJ
+The models had their generalization capacity measured on data from flows that did not participate in the training. \text To achieve this, new simulations were carried out using the topology in Figure \ref{fig:dumbell}, along the same lines as that carried out to collect the training data; however, using different numbers of stations (and their flows) connected to the bottleneck (5, 10, 20, 40) and  CC algorithm (NewReno, CUBIC, BBR and Vegas). Since TCP-Vegas did not produce occupancy above $70\%$ on the edge router for 05 flows, there were $15$ valid simulations.
+
+
+After the data preparation processing described previously, each simulation provided a set $X$ of 4000 inputs. Of these 4000 entries, 70\% (2,800) were randomly selected, transformed, and classified by each of the $09$ surviving models (Section \ref{sec:analise_treinamento}). The results, using average values of the metrics, are presented in Table \ref{tab:performancegeneralizacao}:
+
+In general, the models demonstrated excellent generalization capacity. In Table \ref{tab:performancegeneralizacao}, the two values corresponding to the best performance are highlighted in each column, including ties. It can be seen that, again, the MLP$_{23}$, CNN$_{123}$ and CNN$_{13}$ models stand out. Component 3, $rtt\_ratio$ is always present in the best answers.
+
+%GGJ%
+The models have an impressive performance, as can be seen in the corresponding ROC space (Figure \ref{fig:performancegeneralizacao2}), collected from the confusion matrix obtained in each round of classification (each color is a variation of CC and number of flows). The density of points around the position (0,1) and the straight line TPR=1 reaffirm the models MLP$_{23}$(Fig.\ref{fig:performancegeneralizacaoMLP23}), CNN$_{123}$(Fig . \ref{fig:performancegeneralizacaoCNN123}) and CNN$_{13}$(Fig. \ref{fig:performancegeneralizacaoCNN13}) as the best performers. The CNN$_{23}$ model (Fig. \ref{fig:performancegeneralizacaoCNN23}) is worth highlighting, with good distribution in the ROC space, however, falling short of the three previously mentioned.
+
+
 \begingroup
 \captionsetup[figure]{font=tiny}
 \hfill
