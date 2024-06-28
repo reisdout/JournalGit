@@ -30,6 +30,7 @@
 \usepackage{subcaption}
 \usepackage{caption}
 \usepackage[table]{xcolor}
+\usepackage{graphicx}
 
 %%%Author macros
 \def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
@@ -506,72 +507,284 @@ In general, the models demonstrated excellent generalization capacity. In Table 
 The models have an impressive performance, as can be seen in the corresponding ROC space (Figure \ref{fig:performancegeneralizacao2}), collected from the confusion matrix obtained in each round of classification (each color is a variation of CC and number of flows). The density of points around the position (0,1) and the straight line TPR=1 reaffirm the models MLP$_{23}$(Fig.\ref{fig:performancegeneralizacaoMLP23}), CNN$_{123}$(Fig . \ref{fig:performancegeneralizacaoCNN123}) and CNN$_{13}$(Fig. \ref{fig:performancegeneralizacaoCNN13}) as the best performers. The CNN$_{23}$ model (Fig. \ref{fig:performancegeneralizacaoCNN23}) is worth highlighting, with good distribution in the ROC space, however, falling short of the three previously mentioned.
 
 
-\begingroup
-\captionsetup[figure]{font=tiny}
-\hfill
-\begin{minipage}{0.1\textwidth}
+
+	\begin{figure}
 	\centering
-	\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-	\captionof{figure}{ROC space test Data 10Mbps.}
-	\label{fig:ROCDesempenhoteste10Mbps}	
+	
+	\begin{minipage}[t]{0.46\textwidth} % or '[b]', if desired
+		\centering
+		
+		
+		%\captionbox[Caption]{Caption\par Source:\label{fig:dummy}}{
+			\begin{subfigure}[t]{0.33\textwidth}
+				
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image A}
+				\label{fig:1a}
+			\end{subfigure}%
+			~
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image B}
+				\label{fig:2a}
+			\end{subfigure}%
+			~
+			%\medskip % create some vertical separation
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image C}
+				\label{fig:1c}
+			\end{subfigure}%
+			~
+			
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image D}
+				\label{fig:1a}
+			\end{subfigure}%
+			~
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image E}
+				\label{fig:2a}
+			\end{subfigure}%
+			~
+			%\medskip % create some vertical separation
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image F}
+				\label{fig:1c}
+			\end{subfigure}%
+			~%Ten que ter uma linha depois do ~
+			
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image G}
+				\label{fig:1a}
+			\end{subfigure}%
+			~
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image H}
+				\label{fig:2a}
+			\end{subfigure}%
+			~
+			%\medskip % create some vertical separation
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image I}
+				\label{fig:1c}
+			\end{subfigure}%		
+			~
+			%}
+		\hfill
+		\caption{ Image Collection 1\hspace{10cm}}
+		\label{fig:Pasnatsch}
+		
+	\end{minipage}
+	\hfill%
+	\begin{minipage}[t]{0.46\textwidth} % or '[b]', if desired
+		%\captionbox[Caption]{Caption\par Source:\label{fig:dummy}}{
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image A}
+				\label{fig:1a}
+			\end{subfigure}%
+			~
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image B}
+				\label{fig:2a}
+			\end{subfigure}%
+			~
+			%\medskip % create some vertical separation
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image C}
+				\label{fig:1c}
+			\end{subfigure}%
+			~
+			
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image D}
+				\label{fig:1a}
+			\end{subfigure}%
+			~
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image E}
+				\label{fig:2a}
+			\end{subfigure}%
+			~
+			%\medskip % create some vertical separation
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image F}
+				\label{fig:1c}
+			\end{subfigure}%
+			~%Ten que ter uma linha depois do ~
+			
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image G}
+				\label{fig:1a}
+			\end{subfigure}%
+			~
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image H}
+				\label{fig:2a}
+			\end{subfigure}%
+			~
+			%\medskip % create some vertical separation
+			\begin{subfigure}[t]{0.33\textwidth}
+				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
+				\caption{Image I}
+				\label{fig:1c}
+			\end{subfigure}%		
+			~
+			%}
+		\hfill
+		\caption{Image Collection 2\hspace{10cm}}
+		\label{fig:2}
+		%}
 \end{minipage}
-%\hfill
-\begin{minipage}{0.1\textwidth}
+
+\end{figure}
+
+
+
+
+
+\begin{center}
+
+\begin{figure}
 	\centering
-	\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-100Mbps.png}
-	\captionof{figure}{ROC space test Data 100Mbps.}
-	\label{fig:ROCDesempenhoteste100Mbps}	
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}		
+		\caption{Lorem ipsum}
+	    \quad
+	 	\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		\caption{Lorem ipsum}
+        \quad
+		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		\caption{Lorem ipsum}
+        
+		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		\caption{Lorem ipsum}
+		\quad
+		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		\caption{Lorem ipsum}
+		
+		\caption{10Mbps}
+	
+		\end{subfigure}
+
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}		
+		\caption{Lorem ipsum}
+		\quad
+		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		\caption{Lorem ipsum}
+		\quad
+		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		\caption{Lorem ipsum}
+		
+		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		\caption{Lorem ipsum}
+		\quad
+		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		\caption{Lorem ipsum}
+	
+	\caption{100Mbps}
+	
+\end{subfigure}
+
+
+		\caption{Caption place holder}
+
+\end{figure}
+
+%\end{minipage}
+
+\end{center}
+
+
+
+
+\begin{minipage}{0.45\textwidth}
+	\begin{minipage}{0.30\textwidth}
+		\centering
+		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		%\captionof{figure}{ROC space test Data 10Mbps.}
+		\label{fig:ROCDesempenhoteste10Mbps}	
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.30\textwidth}
+		\centering
+		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		%\captionof{figure}{ROC space test Data 10Mbps.}
+		\label{fig:ROCDesempenhoteste10Mbps}	
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.30\textwidth}
+		\centering
+		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		%\captionof{figure}{ROC space test Data 10Mbps.}
+		\label{fig:ROCDesempenhoteste10Mbps}	
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.30\textwidth}
+		\centering
+		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		%\captionof{figure}{ROC space test Data 10Mbps.}
+		\label{fig:ROCDesempenhoteste10Mbps}	
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.30\textwidth}
+		\centering
+		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		%\captionof{figure}{ROC space test Data 10Mbps.}
+		\label{fig:ROCDesempenhoteste10Mbps}	
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.30\textwidth}
+		\centering
+		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		%\captionof{figure}{ROC space test Data 10Mbps.}
+		\label{fig:ROCDesempenhoteste10Mbps}	
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.30\textwidth}
+		\centering
+		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		%\captionof{figure}{ROC space test Data 10Mbps.}
+		\label{fig:ROCDesempenhoteste10Mbps}	
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.30\textwidth}
+		\centering
+		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		%\captionof{figure}{ROC space test Data 10Mbps.}
+		\label{fig:ROCDesempenhoteste10Mbps}	
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.30\textwidth}
+		\centering
+		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
+		%\captionof{figure}{ROC space test Data 10Mbps.}
+		\label{fig:ROCDesempenhoteste10Mbps}	
+	\end{minipage}
+	\hfill
+	
 \end{minipage}
-%\hfill
-%\\
-%\\
-%\hfill
-\begin{minipage}{0.1\textwidth}
-	\centering
-	\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-500Mbps.png}
-	\captionof{figure}{ROC space test Data 500Mbps.}
-	\label{fig:ROCDesempenhoteste500Mbps}	
-\end{minipage}
-%\hfill
-\begin{minipage}{0.1\textwidth}
-	\centering
-	\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-1000Mbps.png}
-	\captionof{figure}{ROC space test Data 1000Mbps.}
-	\label{fig:ROCDesempenhoteste1000Mbps}	
-\end{minipage}
-%\hfill
-\begin{minipage}{0.1\textwidth}
-	\centering
-	\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-	\captionof{figure}{ROC space test Data 10Mbps.}
-	\label{fig:ROCDesempenhoteste10Mbps}	
-\end{minipage}
-\begin{minipage}{0.1\textwidth}
-	\centering
-	\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-	\captionof{figure}{ROC space test Data 10Mbps.}
-	\label{fig:ROCDesempenhoteste10Mbps}	
-\end{minipage}
-\begin{minipage}{0.1\textwidth}
-	\centering
-	\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-	\captionof{figure}{ROC space test Data 10Mbps.}
-	\label{fig:ROCDesempenhoteste10Mbps}	
-\end{minipage}
-\begin{minipage}{0.1\textwidth}
-	\centering
-	\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-	\captionof{figure}{ROC space test Data 10Mbps.}
-	\label{fig:ROCDesempenhoteste10Mbps}	
-\end{minipage}
-\begin{minipage}{0.1\textwidth}
-	\centering
-	\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-	\captionof{figure}{ROC space test Data 10Mbps.}
-	\label{fig:ROCDesempenhoteste10Mbps}	
-\end{minipage}
-\hfill
-\endgroup
+
+
+
+
+
+
 
 
 
