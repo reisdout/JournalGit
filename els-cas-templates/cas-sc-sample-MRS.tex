@@ -317,7 +317,23 @@ The ARN based on LSTM and CNN required elaborate transformations. In LSTN, consi
 
 \section{Model Assessment and Selection (QP1)} 
 
-\subsection{Result Analysis - Test Data}\label{sec:analysis_training}
+\subsection{Results on Test Data}\label{sec:analysis_training}
+%GGJ%
+About the results for the test data at 10Mbps, both the distribution of the points in the ROC space 
+(Figure \ref{fig:ROCDesempenhoteste10Mbps}) and the values in Table \ref{tab:metricas_10Mbps_teste} point to the good performance of the MLP$_{13}$ architecture, closely followed by MLP$_{23}$. In the table, MLP$_{13}$ architecture performs better in 4 of 5 presented metrics, closely followed by MLP$_{23}$. In ROC space, the referred models are the ones closest to the top left corner of the graph area. Also noteworthy is the MLP$_{123}$, with performance very close to the models that stood out the most. With accuracy close to $99.5\%$, LSTM$_{123}$, LSTM$_{13}$, LSTM$_{23}$(with the highest recall) and CNN$_{123}$ models appear to be very promising.
+
+%GGJ%
+For 100Mbps, the MLP$_{13}$ and LSTM$_{13}$ models achieved the highest performance in 4 of 5 metrics, followed by the LSTM$_{123}$ and LSTM$_{23}$ models. Other models that reached better marks were MLP$_{123}$, CNN$_{23}$, and MLP$_{23}$. As seen from the figure \ref{fig:ROCDesempenhoteste100Mbps}, all models are very close to the point (0,1) on the respective ROC graph for this scenario.
+
+%GGJ%
+For the 500Mbps rate, except for models trained only with $ack\_ewma$ and $send\_ewma$, all models presented good results(table \ref{tab:metricas_500Mbps_teste}). The MLP$_{123}$ performed better in 3 of 5 metrics, followed by CNN$_{13}$ and CNN$_{23}$, with better accuracy, and F1. These models have the lowest FPR in the ROC space(figure \ref{fig:ROCDesempenhoteste500Mbps}). Under the scenario, LSTM$_{13}$ highlights accuracy. MLP$_{13}$ and LSTM$_{23}$ models should also be mentioned, with an error rate below 0.1.
+
+%GGJ%
+The MLP architecture is the one that stands out the most for 1000Mbps \ref{tab:metricas_1000Mbps_teste}, being the one that produced the best results. The models of this architecture are also closer to the upper left corner of the ROC space. LSTM$_{123}$ and CNN$_{123}$ won in Recall, while LSTM$_{23}$ presented one of the best F1.
+
+%GGJ%
+The worst performances were due to the models trained with the pair $ack\_ewma$ and $send\_ewma$, with hits below $55\%$, for 10, 500, and 1000Mbps rates. For 100Mbps, it was below $76\%$. These models occupy the bottom right corner of all ROC spaces, reaffirming their low performance. The $rtt\_ratio$ feature is a direct measure of buffer occupancy and, with the others, improves performance. Therefore, the MLP$_{12}$, LSTM$_{12}$, and CNN$_{12}$ models will not be part of the following analyses presented.
+ 
 \hfill
 \begin{minipage}{0.45\textwidth}
 	\begingroup
@@ -329,7 +345,7 @@ The ARN based on LSTM and CNN required elaborate transformations. In LSTN, consi
 		
 		\begin{tabular*}{\textwidth}{@{} CCCCCC@{} }
 			\toprule
-			Modelo&Acurácia&Erro&Precisão&Recall&F1 \\
+			Model&Accuracy&Error&Precision&Recall&F1 \\
 			\midrule
 			MLP$_{123}$ & $0.997$ & $0.003$ & $0.997$ & $0.998$ & $0.997$ \\
 			MLP$_{13}$ & $0.998$ & $0.002$ & $1.000$ & $0.995$ & $0.998$ \\
@@ -346,7 +362,7 @@ The ARN based on LSTM and CNN required elaborate transformations. In LSTN, consi
 			\bottomrule
 		\end{tabular*}
 		\vspace{-0.3cm}
-		\captionof{table}{Metrics on 10Mbps bottleneck.}
+		\captionof{table}{Test metrics on 10Mbps bottleneck.}
 		\label{tab:metricas_10Mbps_teste}
 	\end{tiny}
 	\endgroup
@@ -362,7 +378,7 @@ The ARN based on LSTM and CNN required elaborate transformations. In LSTN, consi
 		
 		\begin{tabular*}{\textwidth}{@{} CCCCCC@{} }
 			\toprule
-			Modelo&Acurácia&Erro&Precisão&Recall&F1 \\
+			Model&Accuracy&Error&Precision&Recall&F1 \\
 			\midrule
 				MLP$_{123}$ & $0.998$ & $0.002$ & $0.999$ & $0.996$ & $0.998$ \\
 				MLP$_{13}$ & $0.999$ & $0.001$ & $1.000$ & $0.998$ & $0.999$ \\
@@ -379,7 +395,7 @@ The ARN based on LSTM and CNN required elaborate transformations. In LSTN, consi
 			\bottomrule
 		\end{tabular*}
 		\vspace{-0.3cm}
-		\captionof{table}{Metrics on 100Mbps bottleneck.}
+		\captionof{table}{Test metrics on 100Mbps bottleneck.}
 		\label{tab:metricas_100Mbps_teste}
 	\end{tiny}
 	\endgroup
@@ -397,7 +413,7 @@ The ARN based on LSTM and CNN required elaborate transformations. In LSTN, consi
 		
 		\begin{tabular*}{\textwidth}{@{} CCCCCC@{} }
 			\toprule
-			Modelo&Acurácia&Erro&Precisão&Recall&F1 \\
+			Model&Accuracy&Error&Precision&Recall&F1 \\
 			\midrule
 				MLP$_{123}$ & $0.912$ & $0.088$ & $0.932$ & $0.894$ & $0.913$ \\
 				MLP$_{13}$ & $0.902$ & $0.098$ & $0.937$ & $0.876$ & $0.906$ \\
@@ -414,7 +430,7 @@ The ARN based on LSTM and CNN required elaborate transformations. In LSTN, consi
 			\bottomrule
 		\end{tabular*}
 		\vspace{-0.3cm}
-		\captionof{table}{Metrics on 500Mbps bottleneck.}
+		\captionof{table}{Test metrics on 500Mbps bottleneck.}
 		\label{tab:metricas_500Mbps_teste}
 	\end{tiny}
 	\endgroup
@@ -431,7 +447,7 @@ The ARN based on LSTM and CNN required elaborate transformations. In LSTN, consi
 		
 		\begin{tabular*}{\textwidth}{@{} CCCCCC@{} }
 			\toprule
-			Modelo&Acurácia&Erro&Precisão&Recall&F1 \\
+			Model&Accuracy&Error&Precision&Recall&F1 \\
 			\midrule
 				MLP$_{123}$ & $0.8590$ & $0.1410$ & $0.8690$ & $0.8580$ & $0.8630$ \\
 				MLP$_{13}$ & $0.8480$ & $0.1520$ & $0.8650$ & $0.8380$ & $0.8510$ \\
@@ -448,7 +464,7 @@ The ARN based on LSTM and CNN required elaborate transformations. In LSTN, consi
 			\bottomrule
 		\end{tabular*}
 		\vspace{-0.3cm}
-		\captionof{table}{Metrics on 1000Mbps bottleneck.}
+		\captionof{table}{Test metrics on 1000Mbps bottleneck.}
 		\label{tab:metricas_1000Mbps_teste}
 	\end{tiny}
 	\endgroup	
@@ -498,19 +514,140 @@ The ARN based on LSTM and CNN required elaborate transformations. In LSTN, consi
 %GGJ
 The models had their generalization capacity measured on data from flows that did not participate in the training. \text To achieve this, new simulations were carried out using the topology in Figure \ref{fig:dumbell}, along the same lines as that carried out to collect the training data; however, using different numbers of stations (and their flows) connected to the bottleneck (5, 10, 20, 40) and  CC algorithm (NewReno, CUBIC, BBR and Vegas). Since TCP-Vegas did not produce occupancy above $70\%$ on the edge router for 05 flows, there were $15$ valid simulations.
 
-
 After the data preparation processing described previously, each simulation provided a set $X$ of 4000 inputs. Of these 4000 entries, 70\% (2,800) were randomly selected, transformed, and classified by each of the $09$ surviving models (Section \ref{sec:analise_treinamento}). The results, using average values of the metrics, are presented in Table \ref{tab:performancegeneralizacao}:
 
 In general, the models demonstrated excellent generalization capacity. In Table \ref{tab:performancegeneralizacao}, the two values corresponding to the best performance are highlighted in each column, including ties. It can be seen that, again, the MLP$_{23}$, CNN$_{123}$ and CNN$_{13}$ models stand out. Component 3, $rtt\_ratio$ is always present in the best answers.
 
+
+\hfill
+\begin{minipage}{0.45\textwidth}
+	\begingroup
+	\begin{tiny}	
+		\setlength{\tabcolsep}{3pt}
+		\renewcommand{\arraystretch}{1.15}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		
+		\begin{tabular*}{\textwidth}{@{} CCCCCC@{} }
+			\toprule
+			Model&Accuracy&Error&Precision&Recall&F1 \\
+			\midrule
+				MLP$_{123}$ & $0.998$ & $0.002$ & $0.999$ & $0.996$ & $0.998$ \\
+				MLP$_{13}$ & $0.997$ & $0.003$ & $0.999$ & $0.996$ & $0.997$ \\
+				MLP$_{23}$ & $0.997$ & $0.003$ & $0.999$ & $0.995$ & $0.997$ \\
+				LSTM$_{123}$ & $0.993$ & $0.007$ & $0.998$ & $0.991$ & $0.994$ \\
+				LSTM$_{13}$ & $0.993$ & $0.007$ & $0.998$ & $0.990$ & $0.994$ \\
+				LSTM$_{23}$ & $0.993$ & $0.007$ & $0.998$ & $0.991$ & $0.994$ \\
+				CNN$_{123}$ & $0.992$ & $0.008$ & $0.998$ & $0.989$ & $0.994$ \\
+				CNN$_{13}$ & $0.963$ & $0.037$ & $0.951$ & $0.983$ & $0.965$ \\
+				CNN$_{23}$ & $0.964$ & $0.036$ & $0.952$ & $0.983$ & $0.966$ \\
+			\bottomrule
+		\end{tabular*}
+		\vspace{-0.3cm}
+		\captionof{table}{Generalization metrics on 10Mbps bneck.}
+		\label{tab:metricas_generalizacao_10Mbps_teste}
+	\end{tiny}
+	\endgroup
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+	\begingroup
+	\begin{tiny}	
+		\setlength{\tabcolsep}{3pt}
+		\renewcommand{\arraystretch}{1.15}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		
+		\begin{tabular*}{\textwidth}{@{} CCCCCC@{} }
+			\toprule
+			Model&Accuracy&Error&Precision&Recall&F1 \\
+			\midrule
+				MLP$_{123}$ & $0.976$ & $0.024$ & $0.991$ & $0.963$ & $0.976$ \\
+				MLP$_{13}$ & $0.984$ & $0.016$ & $0.989$ & $0.979$ & $0.984$ \\
+				MLP$_{23}$ & $0.973$ & $0.027$ & $0.994$ & $0.955$ & $0.974$ \\
+				LSTM$_{123}$ & $0.956$ & $0.044$ & $0.981$ & $0.939$ & $0.959$ \\
+				LSTM$_{13}$ & $0.960$ & $0.040$ & $0.988$ & $0.940$ & $0.963$ \\
+				LSTM$_{23}$ & $0.956$ & $0.044$ & $0.983$ & $0.937$ & $0.959$ \\
+				CNN$_{123}$ & $0.978$ & $0.022$ & $0.992$ & $0.966$ & $0.979$ \\
+				CNN$_{13}$ & $0.980$ & $0.020$ & $0.984$ & $0.977$ & $0.980$ \\
+				CNN$_{23}$ & $0.980$ & $0.020$ & $0.983$ & $0.979$ & $0.981$ \\			
+			\bottomrule
+		\end{tabular*}
+		\vspace{-0.3cm}
+		\captionof{table}{Generalization metrics on 100Mbps bneck.}
+		\label{tab:metricas_generalizacao_100Mbps_teste}
+	\end{tiny}
+	\endgroup
+\end{minipage}
+
+\hfill
+\begin{minipage}{0.45\textwidth}
+	\vspace{0.5cm}
+	\begingroup
+	\begin{tiny}	
+		\setlength{\tabcolsep}{3pt}
+		\renewcommand{\arraystretch}{1.15}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		
+		\begin{tabular*}{\textwidth}{@{} CCCCCC@{} }
+			\toprule
+			Model&Accuracy&Error&Precision&Recall&F1 \\
+			\midrule
+				MLP$_{123}$ & $0.970$ & $0.030$ & $0.941$ & $0.998$ & $0.968$ \\
+				MLP$_{13}$ & $0.974$ & $0.026$ & $0.950$ & $0.997$ & $0.972$ \\
+				MLP$_{23}$ & $0.930$ & $0.070$ & $0.862$ & $0.998$ & $0.922$ \\
+				LSTM$_{123}$ & $0.967$ & $0.033$ & $0.933$ & $0.999$ & $0.963$ \\
+				LSTM$_{13}$ & $0.972$ & $0.028$ & $0.943$ & $0.999$ & $0.968$ \\
+				LSTM$_{23}$ & $0.971$ & $0.029$ & $0.943$ & $0.998$ & $0.968$ \\
+				CNN$_{123}$ & $0.968$ & $0.032$ & $0.936$ & $0.998$ & $0.964$ \\
+				CNN$_{13}$ & $0.971$ & $0.029$ & $0.945$ & $0.995$ & $0.969$ \\
+				CNN$_{23}$ & $0.963$ & $0.037$ & $0.929$ & $0.995$ & $0.960$ \\    		
+			\bottomrule
+		\end{tabular*}
+		\vspace{-0.3cm}
+		\captionof{table}{Generalization metrics on 500Mbps bneck.}
+		\label{tab:metricas_generalizacao_500Mbps_teste}
+	\end{tiny}
+	\endgroup
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+	\vspace{0.5cm}
+	\begingroup
+	\begin{tiny}	
+		\setlength{\tabcolsep}{3pt}
+		\renewcommand{\arraystretch}{1.15}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		
+		\begin{tabular*}{\textwidth}{@{} CCCCCC@{} }
+			\toprule
+			Model&Accuracy&Error&Precision&Recall&F1 \\
+			\midrule
+				MLP$_{123}$ & $0.963$ & $0.037$ & $0.927$ & $1.000$ & $0.958$ \\
+				MLP$_{13}$ & $0.974$ & $0.026$ & $0.948$ & $1.000$ & $0.972$ \\
+				MLP$_{23}$ & $0.927$ & $0.073$ & $0.853$ & $1.000$ & $0.909$ \\
+				LSTM$_{123}$ & $0.967$ & $0.033$ & $0.942$ & $0.999$ & $0.969$ \\
+				LSTM$_{13}$ & $0.974$ & $0.026$ & $0.958$ & $0.996$ & $0.976$ \\
+				LSTM$_{23}$ & $0.944$ & $0.056$ & $0.902$ & $0.999$ & $0.939$ \\
+				CNN$_{123}$ & $0.931$ & $0.069$ & $0.885$ & $0.982$ & $0.918$ \\
+				CNN$_{13}$ & $0.955$ & $0.045$ & $0.923$ & $0.996$ & $0.954$ \\
+				CNN$_{23}$ & $0.950$ & $0.050$ & $0.915$ & $0.996$ & $0.947$ \\
+			\bottomrule
+		\end{tabular*}
+		\vspace{-0.3cm}
+		\captionof{table}{Generalization metrics on 1000Mbps bneck.}
+		\label{tab:metricas_generalizacao_1000Mbps_teste}
+	\end{tiny}
+	\endgroup	
+\end{minipage}
+
 %GGJ%
 The models have an impressive performance, as can be seen in the corresponding ROC space (Figure \ref{fig:performancegeneralizacao2}), collected from the confusion matrix obtained in each round of classification (each color is a variation of CC and number of flows). The density of points around the position (0,1) and the straight line TPR=1 reaffirm the models MLP$_{23}$(Fig.\ref{fig:performancegeneralizacaoMLP23}), CNN$_{123}$(Fig . \ref{fig:performancegeneralizacaoCNN123}) and CNN$_{13}$(Fig. \ref{fig:performancegeneralizacaoCNN13}) as the best performers. The CNN$_{23}$ model (Fig. \ref{fig:performancegeneralizacaoCNN23}) is worth highlighting, with good distribution in the ROC space, however, falling short of the three previously mentioned.
 
-
-
-	\begin{figure}
-	\centering
-	
+\begin{figure}[h!]
+	\centering	
 	\begin{minipage}[t]{0.46\textwidth} % or '[b]', if desired
 		\centering
 		
@@ -518,277 +655,309 @@ The models have an impressive performance, as can be seen in the corresponding R
 		%\captionbox[Caption]{Caption\par Source:\label{fig:dummy}}{
 			\begin{subfigure}[t]{0.33\textwidth}
 				
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image A}
-				\label{fig:1a}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-MLP123-10Mbps.png} 
+				\caption{MLP$_{123}$}
+				\label{fig:Generalizacao-MLP123-10Mbps}
 			\end{subfigure}%
 			~
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image B}
-				\label{fig:2a}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-MLP13-10Mbps.png} 
+				\caption{MLP$_{13}$}
+				\label{fig:Generalizacao-MLP13-10Mbps}
 			\end{subfigure}%
 			~
 			%\medskip % create some vertical separation
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image C}
-				\label{fig:1c}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-MLP23-10Mbps.png} 
+				\caption{MLP$_{23}$}
+				\label{fig:Generalizacao-MLP23-10Mbps}
 			\end{subfigure}%
 			~
 			
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image D}
-				\label{fig:1a}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-LSTM123-10Mbps.png} 
+				\caption{LSTM$_{123}$}
+				\label{fig:Generalizacao-LSTM123-10Mbps}
 			\end{subfigure}%
 			~
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image E}
-				\label{fig:2a}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-LSTM13-10Mbps.png} 
+				\caption{LSTM$_{13}$}
+				\label{fig:Generalizacao-LSTM13-10Mbps}
 			\end{subfigure}%
 			~
 			%\medskip % create some vertical separation
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image F}
-				\label{fig:1c}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-LSTM23-10Mbps.png} 
+				\caption{LSTM$_{23}$}
+				\label{fig:Generalizacao-LSTM23-10Mbps}
 			\end{subfigure}%
 			~%Ten que ter uma linha depois do ~
 			
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image G}
-				\label{fig:1a}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-CNN123-10Mbps.png} 
+				\caption{CNN$_{123}$}
+				\label{fig:Generalizacao-CNN123-10Mbps}
 			\end{subfigure}%
 			~
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image H}
-				\label{fig:2a}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-CNN13-10Mbps.png} 
+				\caption{CNN$_{13}$}
+				\label{fig:Generalizacao-CNN13-10Mbps}
 			\end{subfigure}%
 			~
 			%\medskip % create some vertical separation
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image I}
-				\label{fig:1c}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-CNN23-10Mbps.png} 
+				\caption{CNN$_{23}$}
+				\label{fig:Generalizacao-CNN23-10Mbps}
 			\end{subfigure}%		
 			~
-			%}
+
+			\begin{subfigure}[t]{\textwidth}
+			\centering
+			\includegraphics[draft=false, width=0.7\textwidth]{./figs/legenta_10Mbps.png} 
+			%\caption{Legenda}
+			\label{fig:legenda-10Mbps}
+			\end{subfigure}%		
+			~
 		\hfill
-		\caption{ Image Collection 1\hspace{10cm}}
-		\label{fig:Pasnatsch}
+		\caption{Models generalization capacity, on 10Mbps.\hspace{8.5cm}}
+		\label{fig:fig:Generalizacao-10Mbps}
 		
 	\end{minipage}
 	\hfill%
 	\begin{minipage}[t]{0.46\textwidth} % or '[b]', if desired
 		%\captionbox[Caption]{Caption\par Source:\label{fig:dummy}}{
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image A}
-				\label{fig:1a}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-MLP123-100Mbps.png} 
+				\caption{MLP$_{123}$}
+				\label{fig:Generalizacao-MLP123-100Mbps}
 			\end{subfigure}%
 			~
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image B}
-				\label{fig:2a}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-MLP13-100Mbps.png} 
+				\caption{MLP$_{13}$}
+				\label{fig:Generalizacao-MLP13-100Mbps}
 			\end{subfigure}%
 			~
 			%\medskip % create some vertical separation
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image C}
-				\label{fig:1c}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-MLP23-100Mbps.png} 
+				\caption{MLP$_{23}$}
+				\label{fig:Generalizacao-MLP23-100Mbps}
 			\end{subfigure}%
 			~
 			
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image D}
-				\label{fig:1a}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-LSTM123-100Mbps.png} 
+				\caption{LSTM$_{123}$}
+				\label{fig:Generalizacao-LSTM123-100Mbps}
 			\end{subfigure}%
 			~
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image E}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-LSTM13-100Mbps.png} 
+				\caption{LSTM$_{13}$}
 				\label{fig:2a}
 			\end{subfigure}%
 			~
 			%\medskip % create some vertical separation
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image F}
-				\label{fig:1c}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-LSTM23-100Mbps.png} 
+				\caption{LSTM$_{23}$}
+				\label{fig:Generalizacao-LSTM23-100Mbps}
 			\end{subfigure}%
 			~%Ten que ter uma linha depois do ~
 			
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image G}
-				\label{fig:1a}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-CNN123-100Mbps.png} 
+				\caption{CNN$_{123}$}
+				\label{fig:Generalizacao-CNN123-100Mbps}
 			\end{subfigure}%
 			~
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image H}
-				\label{fig:2a}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-CNN13-100Mbps.png} 
+				\caption{CNN$_{13}$}
+				\label{fig:Generalizacao-CNN13-100Mbps}
 			\end{subfigure}%
 			~
 			%\medskip % create some vertical separation
 			\begin{subfigure}[t]{0.33\textwidth}
-				\includegraphics[draft=false, width=\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png} 
-				\caption{Image I}
-				\label{fig:1c}
+				\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-CNN23-100Mbps.png} 
+				\caption{CNN$_{23}$}
+				\label{fig:Generalizacao-CNN23-100Mbps}
 			\end{subfigure}%		
 			~
-			%}
+			
+			\begin{subfigure}[t]{\textwidth}
+				\centering
+				\includegraphics[draft=false, width=0.7\textwidth]{./figs/legenta_100Mbps.png} 
+				%\caption{Legenda}
+				\label{fig:legenda-10Mbps}
+			\end{subfigure}%		
+			~
 		\hfill
-		\caption{Image Collection 2\hspace{10cm}}
-		\label{fig:2}
+		\caption{Models generalization capacity, on 100Mbps.\hspace{8.5cm}}
+		\label{fig:Generalizacao-100Mbps}
 		%}
-\end{minipage}
-
-\end{figure}
-
-
-
-
-
-\begin{center}
-
-\begin{figure}
+	\end{minipage}
+	\hfill
+%\vspace{0.7cm}
+	\begin{minipage}[t]{0.46\textwidth} % or '[b]', if desired
 	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}		
-		\caption{Lorem ipsum}
-	    \quad
-	 	\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		\caption{Lorem ipsum}
-        \quad
-		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		\caption{Lorem ipsum}
-        
-		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		\caption{Lorem ipsum}
-		\quad
-		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		\caption{Lorem ipsum}
+	\vspace{0.5cm}
+	
+	%\captionbox[Caption]{Caption\par Source:\label{fig:dummy}}{
+		\begin{subfigure}[t]{0.33\textwidth}
+			
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-MLP123-500Mbps.png} 
+			\caption{MLP$_{123}$}
+			\label{fig:Generalizacao-MLP123-500Mbps}
+		\end{subfigure}%
+		~
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-MLP13-500Mbps.png} 
+			\caption{MLP${13}$}
+			\label{fig:Generalizacao-MLP13-500Mbps}
+		\end{subfigure}%
+		~
+		%\medskip % create some vertical separation
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-MLP23-500Mbps.png} 
+			\caption{MLP$_{23}$}
+			\label{fig:Generalizacao-MLP23-500Mbps}
+		\end{subfigure}%
+		~
 		
-		\caption{10Mbps}
-	
-		\end{subfigure}
-
-	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}		
-		\caption{Lorem ipsum}
-		\quad
-		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		\caption{Lorem ipsum}
-		\quad
-		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		\caption{Lorem ipsum}
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-LSTM123-500Mbps.png} 
+			\caption{LSTM$_{123}$}
+			\label{fig:Generalizacao-LSTM123-500Mbps}
+		\end{subfigure}%
+		~
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-LSTM13-500Mbps.png} 
+			\caption{LSTM$_{13}$}
+			\label{fig:Generalizacao-LSTM13-500Mbps}
+		\end{subfigure}%
+		~
+		%\medskip % create some vertical separation
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-LSTM23-500Mbps.png} 
+			\caption{LSTM$_{23}$}
+			\label{fig:Generalizacao-LSTM23-500Mbps}
+		\end{subfigure}%
+		~%Ten que ter uma linha depois do ~
 		
-		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		\caption{Lorem ipsum}
-		\quad
-		\includegraphics[width=0.3\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		\caption{Lorem ipsum}
-	
-	\caption{100Mbps}
-	
-\end{subfigure}
-
-
-		\caption{Caption place holder}
-
-\end{figure}
-
-%\end{minipage}
-
-\end{center}
-
-
-
-
-\begin{minipage}{0.45\textwidth}
-	\begin{minipage}{0.30\textwidth}
-		\centering
-		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		%\captionof{figure}{ROC space test Data 10Mbps.}
-		\label{fig:ROCDesempenhoteste10Mbps}	
-	\end{minipage}
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-CNN123-500Mbps.png} 
+			\caption{CNN$_{123}$}
+			\label{fig:Generalizacao-CNN123-500Mbps}
+		\end{subfigure}%
+		~
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-CNN13-500Mbps.png} 
+			\caption{CNN$_{13}$}
+			\label{fig:Generalizacao-CNN13-500Mbps}
+		\end{subfigure}%
+		~
+		%\medskip % create some vertical separation
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-CNN23-500Mbps.png} 
+			\caption{CNN$_{23}$}
+			\label{fig:Generalizacao-CNN23-500Mbps}
+		\end{subfigure}%		
+		~
+		
+		\begin{subfigure}[t]{\textwidth}
+			\centering
+			\includegraphics[draft=false, width=0.7\textwidth]{./figs/legenta_500Mbps.png} 
+			%\caption{Legenda}
+			\label{fig:legenda-10Mbps}
+		\end{subfigure}%		
+		~
 	\hfill
-	\begin{minipage}{0.30\textwidth}
-		\centering
-		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		%\captionof{figure}{ROC space test Data 10Mbps.}
-		\label{fig:ROCDesempenhoteste10Mbps}	
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.30\textwidth}
-		\centering
-		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		%\captionof{figure}{ROC space test Data 10Mbps.}
-		\label{fig:ROCDesempenhoteste10Mbps}	
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.30\textwidth}
-		\centering
-		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		%\captionof{figure}{ROC space test Data 10Mbps.}
-		\label{fig:ROCDesempenhoteste10Mbps}	
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.30\textwidth}
-		\centering
-		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		%\captionof{figure}{ROC space test Data 10Mbps.}
-		\label{fig:ROCDesempenhoteste10Mbps}	
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.30\textwidth}
-		\centering
-		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		%\captionof{figure}{ROC space test Data 10Mbps.}
-		\label{fig:ROCDesempenhoteste10Mbps}	
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.30\textwidth}
-		\centering
-		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		%\captionof{figure}{ROC space test Data 10Mbps.}
-		\label{fig:ROCDesempenhoteste10Mbps}	
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.30\textwidth}
-		\centering
-		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		%\captionof{figure}{ROC space test Data 10Mbps.}
-		\label{fig:ROCDesempenhoteste10Mbps}	
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.30\textwidth}
-		\centering
-		\includegraphics[width=1.0\textwidth]{./figs/ROC-Space-Test-Data-10Mbps.png}
-		%\captionof{figure}{ROC space test Data 10Mbps.}
-		\label{fig:ROCDesempenhoteste10Mbps}	
-	\end{minipage}
-	\hfill
+	\caption{Models generalization capacity, on 500Mbps.\hspace{8.5cm}}
+	\label{fig:Generalizacao-500Mbps}
 	
 \end{minipage}
+\hfill%
+\begin{minipage}[t]{0.46\textwidth} % or '[b]', if desired
+	%\captionbox[Caption]{Caption\par Source:\label{fig:dummy}}{
+		\vspace{0.5cm}
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-MLP123-1000Mbps.png} 
+			\caption{MLP$_{123}$}
+			\label{fig:Generalizacao-MLP123-1000Mbps}
+		\end{subfigure}%
+		~
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-MLP13-1000Mbps.png} 
+			\caption{MLP$_{13}$}
+			\label{fig:Generalizacao-MLP13-1000Mbps}
+		\end{subfigure}%
+		~
+		%\medskip % create some vertical separation
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-MLP23-1000Mbps.png} 
+			\caption{MLP$_{23}$}
+			\label{fig:Generalizacao-MLP23-1000Mbps}
+		\end{subfigure}%
+		~
+		
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-LSTM123-1000Mbps.png} 
+			\caption{MLP$_{123}$}
+			\label{fig:Generalizacao-MLP123-1000Mbps}
+		\end{subfigure}%
+		~
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-LSTM13-1000Mbps.png} 
+			\caption{LSTM$_{13}$}
+			\label{fig:Generalizacao-LSTM13-1000Mbps}
+		\end{subfigure}%
+		~
+		%\medskip % create some vertical separation
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-LSTM23-1000Mbps.png} 
+			\caption{LSTM$_{23}$}
+			\label{fig:Generalizacao-LSTM23-1000Mbps}
+		\end{subfigure}%
+		~%Ten que ter uma linha depois do ~
+		
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-CNN123-1000Mbps.png} 
+			\caption{CNN$_{123}$}
+			\label{fig:Generalizacao-CNN123-1000Mbps}
+		\end{subfigure}%
+		~
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-CNN13-1000Mbps.png} 
+			\caption{CNN$_{13}$}
+			\label{fig:2a}
+		\end{subfigure}%
+		~
+		%\medskip % create some vertical separation
+		\begin{subfigure}[t]{0.33\textwidth}
+			\includegraphics[draft=false, width=\textwidth]{./figs/Generalizacao-CNN23-1000Mbps.png} 
+			\caption{CNN$_{23}$}
+			\label{fig:Generalizacao-CNN23-1000Mbps}
+		\end{subfigure}%		
+		~
 
-
-
-
-
-
-
-
-
-
+		\begin{subfigure}[t]{\textwidth}
+			\centering
+			\includegraphics[draft=false, width=0.7\textwidth]{./figs/legenta_1000Mbps.png} 
+			%\caption{Legenda}
+			\label{fig:legenda-10Mbps}
+		\end{subfigure}%		
+		~
+	\hfill
+	\caption{Models generalization capacity, on 1000Mbps.\hspace{8.5cm}}
+	\label{fig:Generalizacao-1000Mbps}
+	%}
+	\end{minipage}
+\end{figure}
 \section{Front matter}
 
 The author names and affiliations could be formatted in two ways:
